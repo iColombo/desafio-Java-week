@@ -5,11 +5,11 @@ import jakarta.validation.constraints.NotNull;
 
 
 public class ProdutoDto {
+ 
+    @NotBlank
+    private String nome;
 
-	@NotBlank
-	private String nome;
-
-	@NotNull
+    @NotNull
     private Double preco;
 
     public String getNome() {
