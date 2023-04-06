@@ -11,17 +11,19 @@ import java.util.List;
 @Service
 public class ProdutoService {
 
+    private ProdutoRepository produtoRepository;
+
     public ProdutoService(ProdutoRepository produtoRepository) {
         this.produtoRepository = produtoRepository;
     }
 
-    private ProdutoRepository produtoRepository;
-
-
-
     public Produto criarProduto (Produto produto){
         return produtoRepository.save(produto);
     }
+
+	public boolean existsByNome(String nome) {
+		return this.produtoRepository.existsByNome(nome);
+	}
 
     public List<Produto> listarProdutos(){
         return produtoRepository.findAll();
